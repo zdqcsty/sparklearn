@@ -11,8 +11,6 @@ object Test {
 
     val frame = session.read.csv("hdfs://10.129.18.17:8020/user/zgh/test1.csv")
 
-
-
     frame.show()
     frame.write.csv("/user/zgh/test")
 
