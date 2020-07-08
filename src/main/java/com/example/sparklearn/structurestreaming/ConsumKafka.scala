@@ -31,6 +31,17 @@ object ConsumKafka {
       .format("console")
       .start()
 
+/*    val query = lines
+      .selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+      .writeStream
+      .format("kafka")
+      //将数据写入kafka的时候需要设置checkpoint，用于故障恢复，维护offsect
+      .option("checkpointLocation", "E:\\check")
+      .option("kafka.bootstrap.servers", "10.130.7.208:9092")
+      .option("topic", "test")
+      .start()*/
+
+
     query.awaitTermination()
 
   }
