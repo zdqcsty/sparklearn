@@ -20,7 +20,7 @@
   
   <property>
     <name>hive.metastore.warehouse.dir</name>
-    <value>hdfs://beh001/hive/warehouse</value>
+    <value>hdfs://behhb001/hive/warehouse</value>
   </property>
     
   <property>
@@ -35,7 +35,7 @@
     
   <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:mysql://shujuyun03-cuidong.novalocal/hive?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8</value>
+    <value>jdbc:mysql://hebing3.novalocal/hive?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8</value>
   </property>
   
   <property>
@@ -70,22 +70,22 @@
     
   <property>
     <name>hive.metastore.uris</name>
-    <value>thrift://shujuyun01-cuidong.novalocal:9083,thrift://shujuyun02-cuidong.novalocal:9083</value>
+    <value>thrift://hebing3.novalocal:9083,thrift://hebing4.novalocal:9083</value>
   </property>
   
   <property>
     <name>hive.server2.thrift.port</name>
-    <value>10001</value>
+    <value>10000</value>
   </property>
     
   <property>
     <name>hive.server2.thrift.bind.host</name>
-    <value>shujuyun01-cuidong.novalocal</value>
+    <value>hebing4.novalocal</value>
   </property>
     
   <property>
     <name>hive.zookeeper.quorum</name>
-    <value>shujuyun01-cuidong.novalocal,shujuyun02-cuidong.novalocal,shujuyun03-cuidong.novalocal</value>
+    <value>hebing1.novalocal,hebing2.novalocal,hebing3.novalocal</value>
   </property>
     
   <property>
@@ -105,7 +105,7 @@
     
   <property>
     <name>spark.master</name>
-    <value>yarn</value>
+    <value>yarn-cluster</value>
   </property>
     
   <property>
@@ -115,17 +115,17 @@
     
   <property>
     <name>spark.eventLog.dir</name>
-    <value>hdfs://beh001/var/log/hadoop-spark</value>
+    <value>hdfs://behhb001/var/log/hadoop-spark</value>
   </property>
     
   <property>
     <name>spark.executor.memory</name>
-    <value>2g</value>
+    <value>4g</value>
   </property>
     
   <property>
     <name>spark.driver.memory</name>
-    <value>1g</value>
+    <value>2g</value>
   </property>
     
   <property>
@@ -172,9 +172,4 @@
     <name>spark.executor.extraLibraryPath</name>
     <value>/opt/beh/core/hadoop/lib/native</value>
   </property>
-  <property>
-      <name>fs.hdfs.impl.disable.cache</name>
-      <value>true</value>
-  </property>
-
   </configuration>
