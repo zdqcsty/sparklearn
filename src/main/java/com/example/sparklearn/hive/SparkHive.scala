@@ -22,7 +22,9 @@ object SparkHive {
 
     session.sparkContext.hadoopConfiguration.set("dfs.client.use.datanode.hostname", "true")
 
-    session.sql("insert into ceshi.streaming select * from ceshi.test limit 10")
+    val frame=session.sql("select * from ceshi.ceshi limit 10")
+
+    frame.repartition(2).write.option("header",true).csv("/user/zgh/oiuyty")
 
     session.close()
 
