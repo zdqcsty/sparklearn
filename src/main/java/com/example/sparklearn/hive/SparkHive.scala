@@ -14,7 +14,7 @@ object SparkHive {
       .builder().enableHiveSupport().master("local[*]").getOrCreate()
 
     //要显示指定core-site.xml hdfs-site.xml  hive-site.xml  或者将他放到resource根目录下
-    val conf=new Configuration
+    val conf = new Configuration
     conf.addResource("hebing/core-site.xml")
     conf.addResource("hebing/hdfs-site.xml")
     conf.addResource("hebing/hive-site.xml")
@@ -22,12 +22,11 @@ object SparkHive {
 
     session.sparkContext.hadoopConfiguration.set("dfs.client.use.datanode.hostname", "true")
 
-    val frame=session.sql("select * from ceshi.ceshi limit 10")
+    val frame = session.sql("select * from ceshi.ceshi limit 10")
 
-    frame.repartition(2).write.option("header",true).csv("/user/zgh/oiuyty")
+    frame.repartition(2).write.option("header", true).csv("/user/zgh/oiuyty")
 
     session.close()
-
 
 
   }

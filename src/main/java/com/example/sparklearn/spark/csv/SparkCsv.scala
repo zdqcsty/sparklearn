@@ -25,11 +25,7 @@ object SparkCsv {
 
     frame.show()
 
-    frame.write.option("emptyValue","").csv("F:\\aaa.txt")
-
-
-
-
+    frame.repartition(1).write.option("emptyValue","").csv("F:\\aaa.txt")
 
   }
 
