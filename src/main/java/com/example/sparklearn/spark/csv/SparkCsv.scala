@@ -1,5 +1,6 @@
 package com.example.sparklearn.spark.csv
 
+import org.apache.hadoop.fs.Path
 import org.apache.spark.sql.SparkSession
 
 object SparkCsv {
@@ -20,12 +21,30 @@ object SparkCsv {
       * 落地的数据就是5,,7
       *
       */
-    val frame = session
-      .read.csv("F:\\demo.txt")
 
-    frame.show()
+    val value = session.sparkContext.textFile("file:///E:\\demo.txt")
 
-    frame.repartition(1).write.option("emptyValue","").csv("F:\\aaa.txt")
+
+    val key = value.map { x =>
+      val arr = x.split(",")
+      (arr(0), arr(1))
+    }.reduceByKey((x, y) => x)
+
+    val dependencies = key.dependencies
+
+    dependencies.foreach(println(_))
+
+    key.collect()
+
+
+//    val frame = session
+//      .read.csv("F:\\demo.txt")
+//
+//    frame.show()
+//
+//    frame.repartition(1).write.option("emptyValue","").csv("F:\\aaa.txt")
+
+
 
   }
 
